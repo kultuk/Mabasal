@@ -41,7 +41,7 @@
 export default {
   name: 'app',
   created:function(){
-      fetch("http://nuri.dooble.ws/nuriviolations").then(res=>{
+      fetch("https://nuri.dooble.ws/nuriviolations").then(res=>{
           res.json().then(data=>{
               // console.log(data)
               this.violations = data;
