@@ -22,4 +22,5 @@ git commit -m 'deploy'
 # if you are deploying to https://kultuk.github.io/<REPO>
 git push -f git@github.com:kultuk/Mabasal.git master:gh-pages
 
+
 cd -
