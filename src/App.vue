@@ -1,42 +1,34 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <violationList></violationList> -->
-    <section class="hero is-primary">
+    <section class="hero is-info">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
-          Nuri's Mabasal
+          מה בסל
         </h1>
       </div>
     </div>
   </section>
-    <b-input type="text" v-model="filterText"></b-input>
+    <b-input type="text" v-model="filterText" custom-class="search-bar" placeholder="הכנס שם עבירה"></b-input>
     <table>
       <tr v-for="violation in filterdViolations" :key="violation.ID" >
         <td><span>{{violation.Name}}</span></td>
-
-        <!-- <b-taglist attached style="display:inline-block;"> -->
         <td>
 
           <b-tag rounded>{{violation.CatName}}</b-tag>
         </td>
         <td>
-          <b-tag rounded type="is-primary" :class="[violation.IsIncluded ? 'is-primary' : 'is-danger']">{{violation.IsIncluded ? 'כלול' : 'לא כלול'}}</b-tag>
+          <b-tag rounded type="is-info" :class="[violation.IsIncluded ? 'is-info' : 'is-danger']">{{violation.IsIncluded ? 'כלול' : 'לא כלול'}}</b-tag>
         </td>
         
       </tr>
     </table>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <img src="./assets/folivora-logo.png" alt="Folivora Logo" class="logo-img" @click="rollCredits">
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import violationList from './components/violationList.vue'
-
-// var violations = [];
-// Vue.component();
+import { ToastProgrammatic as Toast } from 'buefy';
 
 export default {
   name: 'app',
@@ -65,6 +57,9 @@ export default {
         // console.log(self.filterText)
         return (!filter || (violation.Name || '').indexOf(filter) != -1);
       })
+    },
+    rollCredits(){
+      Toast.open("נוצר על ידי נוריאל שקורי וסהר זהבי");
     }
   },
   components: {
@@ -82,9 +77,18 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
 }
+.search-bar{
+  text-align: right;
+  color: orange !important;
+  border-color: orange !important;  
+}
+.logo-img{
+  height: 100px;
+}
 table{
   direction: rtl;
   margin: 24px;
+  width: 94%;
 }
 td{
   text-align: right !important;
