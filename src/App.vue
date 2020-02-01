@@ -88,7 +88,7 @@ export default {
 table{
   direction: rtl;
   margin: 24px;
-  width: 94%;
+  width: 90%;
 }
 td{
   text-align: right !important;
